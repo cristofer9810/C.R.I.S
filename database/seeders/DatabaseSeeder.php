@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(5)->create();
         Category_debt::factory(4)->create();
         $this->call(ReleaseSeeder::class);
-        $this->call(PersonalSeeder::class);
+        /* $this->call(PersonalSeeder::class); */
         $this->call(ViewSeeder::class);
     }
 }
