@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Storage::deleteDirectory('posts');
-        Storage::makeDirectory('posts');
+        Storage::deleteDirectory('public/posts');
+        Storage::makeDirectory('public/posts');
 
-        Storage::deleteDirectory('galleries');
-        Storage::makeDirectory('galleries');
+        Storage::deleteDirectory('public/gallery');
+        Storage::makeDirectory('public/gallery');
 
         //este es el seeder de los rol, que esta en RoleSeeder  
         $this->call(RolSeeder::class);
