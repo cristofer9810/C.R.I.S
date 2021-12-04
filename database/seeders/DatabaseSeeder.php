@@ -31,6 +31,6 @@ class DatabaseSeeder extends Seeder
         Category_debt::factory(4)->create();
         $this->call(ReleaseSeeder::class);
         /* $this->call(PersonalSeeder::class); */
-        $this->call(ViewSeeder::class);
+        /* $this->call(ViewSeeder::class); */
     }
 }
