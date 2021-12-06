@@ -42,17 +42,19 @@
 
                         <i class="far fa-edit fa-4x "></i>
                     </div>
-                    <div class="group-material">
-                        {!! Form::text('name', null, ['class' => 'form-control material-control tooltips-general', 'placeholder' => 'Ingrese el nombre de la categoría', 'title' => 'Escribe el nombre de la categoria', 'data-placement' => 'top', 'data-toggle' => 'tooltip']) !!}
+                    <div class="form-group">
+
                         {!! Form::label('name', 'Nombre') !!}
+                        {!! Form::text('name', null, ['class' => 'form-control material-control tooltips-general', 'placeholder' => 'Ingrese el nombre de la categoría', 'title' => 'Escribe el nombre de la categoria', 'data-placement' => 'top', 'data-toggle' => 'tooltip']) !!}
 
                         @error('name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="group-material">
-                        {!! Form::text('slug', null, ['class' => 'form-control material-control tooltips-general', 'title' => 'se visualizara el nombre de la categoria ejemplo: hola-como-estas', 'data-placement' => 'top', 'data-toggle' => 'tooltip']) !!}
+                    <div class="form-group">
+
                         {!! Form::label('slug', 'Slug') !!}
+                        {!! Form::text('slug', null, ['class' => 'form-control material-control tooltips-general', 'title' => 'se visualizara el nombre de la categoria ejemplo: hola-como-estas', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'readonly']) !!}
 
                         @error('slug')
                             <span class="text-danger">{{ $message }}</span>
@@ -82,6 +84,5 @@
             });
         });
     </script>
-
 
 @endsection

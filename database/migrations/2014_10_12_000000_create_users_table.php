@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('telephone')->default('');
-            $table->string('address')->default('');
-            $table->enum('cargo', ['Administrador', 'Celador', 'Aseadora', 'Todero', 'Asistentes', 'No registra']);
+            $table->string('telephone')->default('')->nullable();
+            $table->string('address')->default('')->nullable();
+            $table->enum('cargo', ['Administrador', 'Celador', 'Aseadora', 'Todero', 'Asistentes', 'No registra'])->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('color')->nullable();
             $table->string('password');
-            $table->enum('status',['deuda', 'no deuda'])->default('no deuda');
+            $table->enum('status',['deuda', 'no deuda'])->default('no deuda')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
