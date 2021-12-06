@@ -10,7 +10,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
 
     </style>
     <div class="bg-fixed bg-top imagen mb-7">
@@ -19,7 +18,7 @@
         <span><i class="far fa-images fa-3x"></i></span>
     </div>
     <h1 class="py-1 text-5xl font-bold leading-8 text-center">Galería<h1>
-        <br>
+            <br>
 
             <div class="container">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -30,7 +29,7 @@
                                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                     <img class="object-center w-full h-96"
                                         src="{{ Storage::url($view->gallery->url) }}">
-                                        <h3 class=" text-center">{{$view->name}}</h3>
+                                    <h3 class=" text-center">{{ $view->name }}</h3>
                                 </div>
                             @else
                                 <div class="carousel-item">
@@ -53,12 +52,12 @@
                     </div>
                 </div>
             </div>
-<br>
-<br>
-<br>
-                <h1 class="py-3 text-5xl font-bold leading-8 text-center">Aquí estamos<h1>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1314.1613062054853!2d-74.11098148659973!3d4.747602198521642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f84881e5a1d15%3A0x4d8baedf63b1eb11!2sCl.%20142%20%23128c-26%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1628546171531!5m2!1ses!2sco"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <br>
+            <br>
+            <br>
+            <h1 class="py-3 text-5xl font-bold leading-8 text-center">Aquí estamos<h1>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1314.1613062054853!2d-74.11098148659973!3d4.747602198521642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f84881e5a1d15%3A0x4d8baedf63b1eb11!2sCl.%20142%20%23128c-26%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1628546171531!5m2!1ses!2sco"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 </x-app-layout>

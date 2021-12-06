@@ -86,7 +86,8 @@
                 <li><a href="/"><i class="px-1 py-1 fas fa-house-user"></i>&nbsp;&nbsp; Pagina principal</a></li>
                 {{-- <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <li><a href="{{ route('logout') }}"><i class="px-1 py-1 fas fa-sign-out-alt"></i>&nbsp;&nbsp;
+                    <li><a href="{{ route('logout') }}" role="menuitem" tabindex="-1" id="user-menu-item-2"
+                            onclick="event.preventDefault(); ><i class=" px-1 py-1 fas fa-sign-out-alt"></i>&nbsp;&nbsp;
                             Cerrar
                             sesion</a></li>
                 </form> --}}

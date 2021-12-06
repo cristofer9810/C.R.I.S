@@ -53,7 +53,7 @@
                 <th class="div-table-cell">Id</th>
                 <th class="div-table-cell">Roles</th>
                 <th class="div-table-cell">Actualizar</th>
-                <th class="div-table-cell">Borrar</th>
+             
             </tr>
         </thead>
         <tbody>
@@ -70,19 +70,7 @@
 
                         {{-- @endcan --}}
                     </td>
-                    <td class="div-table-cell" width="10px">
-
-                        @can('admin.roles.destroy')
-
-
-
-                        {!! Form::open(['route' => ['admin.roles.destroy', $role], 'method' => 'delete', 'onsubmit' => 'return confirm("Esta seguro de borrar el rol?")']) !!}
-                        {!! Form::submit('Eliminar', ['class' => 'btn btn-sm btn-danger']) !!}
-                            </form>
-
-                        @endcan
-
-                    </td>
+                   
                 </tr>
 
             @endforeach

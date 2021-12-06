@@ -35,7 +35,9 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('admin.roles.edit', $role)->with('info', 'El rol se creo con éxito');
+        return $role;
+
+       /*  return redirect()->route('admin.roles.edit', $role)->with('info', 'El rol se creo con éxito'); */
     }
 
     public function edit(Role $role)

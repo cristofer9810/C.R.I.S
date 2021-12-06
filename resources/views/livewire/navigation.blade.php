@@ -49,7 +49,7 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
             <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
 
                 {{-- logotipo --}}
-                <a href="/" class="flex items-center flex-shrink-0">
+                <a href="/" class="flex items-center flex-shrink-0 sm:block sm:ml-6">
                     <img class="block w-auto h-8 lg:hidden" src="{{ asset('img/Imagen4.png') }}" alt="C.R.I.S">
                     <img class="hidden w-auto h-8 lg:block" src="{{ asset('img/Imagen2.png') }}" alt="C.R.I.S">
                 </a>
@@ -204,7 +204,7 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" x-show="open" x-on:click.away="open = false" id="mobile-menu">
 
-        <div class="px-2 pt-2 pb-3 space-y-1">
+        <div class="sm:hidden" x-show="open" x-on:click.away="open = false" id="mobile-menu">
             <a class="text-center text-white no-underline bg-black btn btn-dark dropdown-toggle hover:no-underline "
                 href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 Comunicados
@@ -257,29 +257,7 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
             <a href="{{ route('inicio.contactanos') }}"
                 class="block px-3 py-2 text-base font-medium text-gray-300 no-underline rounded-md hover:bg-yellow-500 hover:text-white hover:no-underline">Contacto</a>
 
-        </div>
-
-        <div class="px-2 pt-2 pb-3 space-y-1">
-
-            <div class="hidden px-3 btn-group sm:block sm:ml-6">
-                <button class="text-white bg-black btn btn-secondary btn-sm" type="button">
-                    Conoce tu conjunto
-                </button>
-                <button type="button"
-                    class="text-white bg-black btn btn-sm btn-dark dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Conoce más</span>
-                </button>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Ciclo de parqueadero</a></li>
-                    <li><a class="dropdown-item" href="#">Licitaciones</a></li>
-                    <li><a class="dropdown-item" href="#">Manual del Conjunto R.</a></li>
-                    <li><a class="dropdown-item" href="#">Manual de Bioseguridad</a></li>
-                    <li><a class="dropdown-item" href="#">Líneas de emergencia</a></li>
-                </ul>
-            </div>
-        </div>
+        </div>    
     </div>
 
     <script>
