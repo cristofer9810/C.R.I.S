@@ -3,7 +3,7 @@
 
     <x-jet-authentication-card>
         <x-slot name="logo">
-            
+
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -16,7 +16,7 @@
         <div class="text-center text-white py-5">
 
             <i class="far fa-user-circle fa-7x"></i>
-            
+
         </div>
 
         <form method="POST" action="{{ route('login') }}">
@@ -43,7 +43,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-blue-500 hover:text-gray-900"
+                    <a class="underline text-sm text-blue-500 hover:text-blue-800"
                         href="{{ route('password.request') }}">
                         {{ __('¿Olvidaste tu contraseña?') }}
                     </a>

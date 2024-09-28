@@ -33,24 +33,25 @@ class ReleaseController extends Controller
     public function create()
     {
 
-        //envia la infromacion a la vista del return view para que en mi crear un post aparescan las categorias 
+
+        //envia la infromacion a la vista del return view para que en mi crear un post aparescan las categorias
         $categories = Category::pluck('name', 'id');
 
         return view('admin.release.create', compact('categories'));
     }
 
-  
+
     public function store(ReleaseRequest $request)
     {
 
-        //esto sirve para hacer pruebas si se esta guardando las imagenes en la ruta public/gallery o demas 
-        /* return Storage::put('public/posts', $request->file('file')); */
+        //esto sirve para hacer pruebas si se esta guardando las imagenes en la ruta public/gallery o demas
+        /* return Storage::put('public/storage/posts', $request->file('file')); */
 
 
         $release = Release::create($request->all());
 
         if ($request->file('file')) {
-            $url = Storage::put('public/posts', $request->file('file'));
+            $url = Storage::putFile('public/storage/posts', $request->file('file'));
 
             $release->image()->create([
                 'url' => $url
@@ -60,7 +61,7 @@ class ReleaseController extends Controller
         return redirect()->route('admin.release.edit', $release);
     }
 
- 
+
     public function edit(Release $release)
     {
 
@@ -71,7 +72,7 @@ class ReleaseController extends Controller
         return view('admin.release.edit', compact('release', 'categories'));
     }
 
- 
+
     public function update(ReleaseRequest $request, Release $release)
     {
 
@@ -79,7 +80,7 @@ class ReleaseController extends Controller
         $release->update($request->all());
 
         if ($request->file('file')) {
-            $url = Storage::put('public/posts', $request->file('file'));
+            $url = Storage::put('public/storage/posts', $request->file('file'));
 
             if ($release->image) {
                 Storage::delete($release->image->url);
@@ -97,7 +98,7 @@ class ReleaseController extends Controller
         return redirect()->route('admin.release.edit', $release)->with('info', 'El post se actualizo con exito');
     }
 
-   
+
     public function destroy(Release $release)
     {
 

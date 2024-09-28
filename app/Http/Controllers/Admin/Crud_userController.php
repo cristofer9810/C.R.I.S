@@ -85,6 +85,8 @@ class Crud_userController extends Controller
 
     public function edit(User $crud_user)
     {
+        $crud_users = User::all();
+
         $colors = [
             'red' => 'Color rojo',
             'yellow' => 'Color amarillo',
@@ -106,11 +108,11 @@ class Crud_userController extends Controller
 
         $category_debts = Category_debt::pluck('name', 'id');
 
-        return view('admin.crud_users.edit', compact('crud_user', 'colors', 'cargos'));
+        return view('admin.crud_users.edit', compact('crud_user', 'crud_users', 'colors', 'cargos'));
     }
 
     public function update(UserRequest $request, User $crud_user)
-    {     
+    {
 
         $data = $request->only('name', 'email', 'telephone', 'address', 'cargo', 'status', 'color');
         $password = $request->input('password');
@@ -125,7 +127,7 @@ class Crud_userController extends Controller
 
     public function destroy(User $crud_user)
     {
-        
+
         $crud_user->delete();
 
         return redirect()->route('admin.crud_users.index', $crud_user)->with('eliminar', 'el usuario se elimino con exito');

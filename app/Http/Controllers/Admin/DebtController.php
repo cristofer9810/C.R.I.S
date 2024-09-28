@@ -29,11 +29,11 @@ class DebtController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $debts = User::all();
 
-        $category_debts = Category_debt::pluck('name', 'id');    
+        $category_debts = Category_debt::pluck('name', 'id');
 
-        return view('admin.debts.create', compact('category_debts', 'users'));
+        return view('admin.debts.create', compact('category_debts', 'debts'));
     }
 
     /**
@@ -44,14 +44,14 @@ class DebtController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $debts = Debt::create($request->all());
 
         $debt_id = $request->input('debt_id');
         $user_id = $request->input('user_id');
 
         $debt_user = Debt::where('debt_id', $debt_id)
-                         ->where('user_id', $user_id)->first();                       
+                         ->where('user_id', $user_id)->first();
         if ($debt_user) {
             return back()->with('notification', 'El usuario ya tiene una deuda');
 
@@ -62,26 +62,37 @@ class DebtController extends Controller
             return back();
 
         }
-        
+
         return redirect()->route('admin.debts.edit', $debts);
     }
 
-    public function edit(Debt $debt)
+    public function edit(User $debt)
     {
-        $category_debts = Category_debt::all();
 
-        $users = User::all();
+        $category_debts = Category_debt::pluck('name', 'id');
+        #$user = User::where('id_user', $id_user);
+        $solor = User::pluck('color', 'id');
+        $selectedDebt = User::pluck('color', 'id');
+        $debts = [
+            'red' => 'Color rojo',
+            'yellow' => 'Color amarillo',
+            'green' => 'Color verde',
+            'blue' => 'Color azul',
+            'indigo' => 'Color indigo',
+            'purple' => 'Color morado',
+            'pink' => 'Color rosado',
+        ];
 
-        return view('admin.debts.edit', compact('debt', 'category_debts', 'users'));
+        return view('admin.debts.edit', compact('debt','category_debts', 'debts', 'solor', 'selectedDebt'));
     }
 
-    
+
     public function update(Request $request, Debt $debt)
     {
         return redirect()->route('admin.debts.edit', $debt);
     }
 
-  
+
     public function destroy(Debt $debt)
     {
         //

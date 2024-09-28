@@ -5,7 +5,7 @@
                 <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="">
             </figure>
             <li style="color:#fff; cursor:default;">
-                <span class="all-tittles">cristofer payan</span>
+                <span class="all-tittles">{{ auth()->user()->name }}</span>
             </li>
             <li class="tooltips-general search-book-button" data-href="#" data-placement="bottom"
                 title="cambiar lenguaje">

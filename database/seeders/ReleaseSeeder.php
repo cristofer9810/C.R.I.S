@@ -16,7 +16,7 @@ class ReleaseSeeder extends Seeder
     public function run()
     {
         //esta es la relacion para crear imagenes en las tablas en nuestra BD
-        $releases = Release::factory(50)->create();
+        $releases = Release::factory(10)->create();
 
         foreach ($releases as $release) {
             Image::factory(1)->create([

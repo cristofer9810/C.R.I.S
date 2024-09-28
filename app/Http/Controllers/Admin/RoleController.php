@@ -21,23 +21,27 @@ class RoleController extends Controller
     {
         $permissions = Permission::all();
 
-        return view('admin.roles.create', compact('permissions'));;
+        return view('admin.roles.create', compact('permissions'));
     }
 
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'permissions' => 'array'
         ]);
 
-        $role = Role::create($request->all());
+        $role = Role::create(['name' => $request->name]);
 
-        $role->permissions()->sync($request->permissions);
+        if ($request->has('permissions') && is_array($request->permissions)) {
+            $role->permissions()->sync($request->permissions);
+        } else {
+            $role->permissions()->sync([]);
+        }
 
-        return $role;
 
-       /*  return redirect()->route('admin.roles.edit', $role)->with('info', 'El rol se creo con éxito'); */
+        return redirect()->route('admin.roles.edit', $role)->with('info', 'El rol se creó con éxito');
     }
 
     public function edit(Role $role)

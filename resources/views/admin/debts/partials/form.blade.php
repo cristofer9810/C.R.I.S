@@ -78,10 +78,10 @@
 
                 <div class="form-group col-md-6">
                     <p class="font-weight-bold">Color de la circular</p>
-                    @foreach ($users as $user)
+                    @foreach ($debts as $debt)
                         <label class="mr-2">
-                            {!! Form::radio('users[]', $user->id, null) !!}
-                            {{ $user->color }}
+                            {!! Form::radio('users[]', $debt, $debt == old('users[]', $selectedDebt)) !!}
+                            {{ $debt }}
                         </label>
                     @endforeach
                 </div>
@@ -98,3 +98,12 @@
 
             </div>
         </div>
+        <br>
+        <p class="text-center">
+            <a href="{{ route('admin.debts.index') }}"
+                style="margin-right: 20px; padding-right: 20px;padding-left: 20px;padding-bottom: 8px;"
+                class="mx-1.5 btn btn-warning"><i class="px-3 fas fa-backspace"></i>Regresar</a>
+            <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i
+                    class="fas fa-broom"></i>
+                &nbsp;&nbsp; Limpiar</button>
+

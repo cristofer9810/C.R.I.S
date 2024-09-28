@@ -30,7 +30,7 @@ Route::resource('categories', CategoryController::class)->except('show')->names(
 Route::resource('release', ReleaseController::class)->names('admin.release');
 
 
-//rutas de zonas comunes 
+//rutas de zonas comunes
 Route::resource('views', ViewController::class)->names('admin.views');
 
 

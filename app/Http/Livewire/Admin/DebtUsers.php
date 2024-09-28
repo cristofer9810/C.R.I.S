@@ -16,7 +16,7 @@ class DebtUsers extends Component
 
     protected $paginationTheme = "bootstrap";
 
-    
+
     public function updatingSearch()
     {
 
@@ -27,10 +27,10 @@ class DebtUsers extends Component
     public function render()
     {
 
-        $users = User::where('name', 'LIKE', '%' . $this->search . '%')
+        $debts = User::where('name', 'LIKE', '%' . $this->search . '%')
         ->orWhere('email', 'LIKE', '%' . $this->search . '%')
         ->paginate();
 
-        return view('livewire.admin.debt-users', compact('users'));
+        return view('livewire.admin.debt-users', compact('debts'));
     }
 }
